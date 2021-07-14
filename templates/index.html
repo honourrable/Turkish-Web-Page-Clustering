@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Stay Safe</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}" />
+		<link rel="icon" href="{{ url_for('static', filename='images/icon.png') }}" />
+	</head>
+
+	<body class="is-preload">
+
+			<header id="header">
+				<img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+				<br> <br> <br>
+			</header>
+
+			<form id="search-page" action="/result" method="post">
+				<select name="methods" id="methods" required>
+					<option value="" disabled selected hidden>Choose method</option>
+    				<option value="0">K-Means with BOW</option>
+    				<option value="1">K-Means with DOC2VEC</option>
+    				<option value="2">Fuzzy C-Means with DOC2VEC</option>
+    				<option value="3">Gaussian Mixture with DOC2VEC</option>
+  				</select>
+
+				<input type="search" name="search" id="search" placeholder="Search Google" required/>
+				<input type="image" id="search-button" alt="Submit" src="{{ url_for('static', filename='images/icon.png') }}"
+					   height="45" value="Search" />
+
+				<br> <br> <br> <br> <br> <br>
+			</form>
+
+			<footer id="footer">
+				<ul class="copyright">
+					<li>&copy; Copyright. All rights reserved.</li>
+				</ul>
+			</footer>
+
+			<script type="text/javascript" src="{{ url_for('static', filename='js/search.js') }}"></script>
+	</body>
+</html>

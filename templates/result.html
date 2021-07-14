@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Stay Safe</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}" />
+		<link rel="icon" href="{{ url_for('static', filename='images/icon.png') }}" />
+	</head>
+
+	<body class="is-preload">
+			<header id="header">
+				<h1 id="resulth1">Results</h1>
+				<h3>Searched "{{search_key}}"</h3>
+
+				<ol>
+					{% for item in result_clusters: %}
+						<li>Cluster :</li>
+						<ul>
+							{% for i in result_clusters[item]: %}
+								<li> <a href="{{i}}"> {{i}} </a> </li>
+							{%endfor%}
+						</ul>
+					{%endfor%}
+				</ol>
+
+				<span>Total web pages number: {{web_pages_number}} <br><br><br></span>
+
+			</header>
+
+			<div>
+				<input type="image" id="return-button" src="{{ url_for('static', filename='images/return.png') }}"
+					  height="50" onclick="goBack()" value="Return to Search Page" />
+			</div>
+
+			<script type="text/javascript" src="{{ url_for('static', filename='js/search.js') }}"></script>
+	</body>
+</html>
