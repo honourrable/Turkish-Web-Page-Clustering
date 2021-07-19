@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function goBack(){
 
 });
 
-// Arka plan animasyonu
+// Background wallpaper animation
 (function() {
 	var	$body = document.querySelector('body');
 

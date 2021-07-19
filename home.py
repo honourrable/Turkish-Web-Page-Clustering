@@ -147,10 +147,12 @@ def web_page_clustering():
         # This line is added to show the row and preprocessed data together, to compare
         all_websites_row = copy.deepcopy(all_websites)
 
+
         # TIME MEASUREMENT OF WEB SCRAPING
         end_time = time.monotonic()
         time_scraping = timedelta(seconds=end_time - start_time)
         start_time = time.monotonic()
+
 
         # DATA PREPROCESSING
         # item represents index in related data structure, like index, to follow the code better
@@ -261,6 +263,7 @@ def web_page_clustering():
         lemmatization()
         remove_duplicate_noise()
 
+
         # PRINTING ROW AND PREPROCESSED DATA
         def print_data():
 
@@ -277,6 +280,7 @@ def web_page_clustering():
             return
 
         print_data()
+
 
         # TIME MEASUREMENT OF DATA PREPROCESSING
         end_time = time.monotonic()
@@ -320,6 +324,7 @@ def web_page_clustering():
             return
 
         create_bow()
+
 
         # CREATION OF VECTORS
         vectors_title = []
@@ -370,6 +375,7 @@ def web_page_clustering():
             return
 
         create_vectors()
+
 
         # CLUSTERING
         # FUNCTION TO PRINT RESULTS OF CLUSTERING, WITH CLUSTER NO AND URLs
@@ -545,6 +551,7 @@ def web_page_clustering():
 
             return
 
+
         # This variable stores the common k cluster number to use for Fuzzy CM and Gaussian M as well,
         # to compare them with K-Means algorithm
         common_k_number = [0]
@@ -605,11 +612,13 @@ def web_page_clustering():
         result_clusters_hierarchical = {}
         hierarchical(result_clusters_hierarchical, np_vectors_title_desc)
 
+
         # WEBSITE INTERFACE CLUSTERING METHOD'S SELECTION
         methods = {0: result_clusters_bow_title_desc, 1: result_clusters_doc2vec_title_desc, 2: result_clusters_fuzzycm,
                    3: result_clusters_gaussian}
         method_choice = int(request.form.get("methods"))
         result_clusters_output = methods.get(method_choice)
+
 
         # TIME MEASUREMENT OF CLUSTERING AND TOTAL OPERATION. PRINTING ALL MAIN PROCESSES' TIME INFORMATION
         end_time = time.monotonic()
